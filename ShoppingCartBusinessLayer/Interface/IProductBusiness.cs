@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCartCommonLayer.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,8 @@ namespace ShoppingCartBusinessLayer.Interface
 {
     public interface IProductBusiness
     {
+
+        ProductResponseModel Add(ProductRequestModel productRequest);
+
     }
 }
