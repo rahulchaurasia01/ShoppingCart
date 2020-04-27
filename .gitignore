@@ -44,14 +44,16 @@ x64/
 *.log
 *.svclog
 *.scc
-BusinessLayer/bin
-BusinessLayer/obj
-CommonLayer/bin
-CommonLayer/obj
-FundooBackend/bin
-FundooBackend/obj
-RepositoryLayer/bin
-RepositoryLayer/obj
+ShoppingCart/fonts
+ShoppingCart/Scripts
+ShoppingCartBusinessLayer/bin
+ShoppingCartBusinessLayer/obj
+ShoppingCartCommonLayer/bin
+ShoppingCartCommonLayer/obj
+ShoppingCart/bin
+ShoppingCart/obj
+ShoppingCartRepositoryLayer/bin
+ShoppingCartRepositoryLayer/obj
 
 # Visual C++ cache files
 ipch/
