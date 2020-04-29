@@ -38,5 +38,41 @@ namespace ShoppingCartBusinessLayer.Service
                 throw new Exception(e.Message);
             }
         }
+
+        /// <summary>
+        /// It Return the Product Details
+        /// </summary>
+        /// <param name="productId">Product Id</param>
+        /// <returns>Product Response Model</returns>
+        public ProductResponseModel Details(int productId)
+        {
+            try
+            {
+                if (productId <= 0)
+                    return null;
+                else
+                    return _productRepository.Details(productId);
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        /// <summary>
+        /// It fetches all the Product
+        /// </summary>
+        /// <returns>List of all Product Response Model</returns>
+        public List<ProductResponseModel> GetAllProduct()
+        {
+            try
+            {
+                return _productRepository.GetAllProduct();
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

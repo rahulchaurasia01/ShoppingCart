@@ -13,6 +13,15 @@
     
 <div class="form-horizontal">
     <hr />
+    @if (ViewBag.ProductStatus != null && ViewBag.ProductStatus)
+    {
+        if (ViewBag.ProductMessage != null)
+        {
+            <div class="alert alert-success">
+                @ViewBag.ProductMessage
+            </div>
+        }
+    }
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })

@@ -61,5 +61,69 @@ namespace ShoppingCartRepositoryLayer.Service
                 throw new Exception(e.Message);
             }
         }
+
+        /// <summary>
+        /// It Return the Product Detais
+        /// </summary>
+        /// <param name="productId">Product Id</param>
+        /// <returns>Product Response Model</returns>
+        public ProductResponseModel Details(int productId)
+        {
+            try
+            {
+                Product product = _applicationContext.Products.Where(pdt => pdt.ProductId == productId).FirstOrDefault();
+
+                if(product != null)
+                {
+                    ProductResponseModel productResponse = new ProductResponseModel
+                    {
+                        ProductId = product.ProductId,
+                        Name = product.Name,
+                        Image = product.Image,
+                        Quantity = product.Quantity,
+                        Price = product.Price,
+                        CreatedAt = product.CreatedAt,
+                        ModifiedAt = product.ModifiedAt
+                    };
+
+                    return productResponse;
+                }
+
+                return null;
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        /// <summary>
+        /// It Fetches all the Product.
+        /// </summary>
+        /// <returns>List of all the product</returns>
+        public List<ProductResponseModel> GetAllProduct()
+        {
+            try
+            {
+                List<ProductResponseModel> products = _applicationContext.Products.
+                    Select(product => new ProductResponseModel
+                    {
+                        ProductId = product.ProductId,
+                        Name = product.Name,
+                        Image = product.Image,
+                        Quantity = product.Quantity,
+                        Price = product.Price,
+                        CreatedAt = product.CreatedAt,
+                        ModifiedAt = product.ModifiedAt
+                    }).
+                    ToList();
+
+                return products;
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

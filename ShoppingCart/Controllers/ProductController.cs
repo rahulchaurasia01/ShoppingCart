@@ -23,18 +23,29 @@ namespace ShoppingCart.Controllers
             _productBusiness = productBusiness;
         }
 
-        // GET: Product
-        public string Index()
+        public ActionResult Index()
         {
-            return "Hola";
+            List<ProductResponseModel> products = _productBusiness.GetAllProduct();
+
+            return View(products);
         }
 
+
+        /// <summary>
+        /// It show the view for Adding Product
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Add()
         {
             return View();
         }
 
+        /// <summary>
+        /// User Entered Product Details is added to the Database
+        /// </summary>
+        /// <param name="productModel">Product Data</param>
+        /// <returns>View</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Add(ProductModel productModel)
@@ -42,6 +53,7 @@ namespace ShoppingCart.Controllers
 
             try
             {
+                ViewBag.ProductStatus = false;
                 if (ModelState.IsValid)
                 {
                     HttpPostedFileBase productImage = productModel.Image;
@@ -59,14 +71,15 @@ namespace ShoppingCart.Controllers
 
                     if (product == null)
                     {
-
+                        ViewBag.ProductStatus = false;
+                        ModelState.AddModelError("", "Unable to Add the Product.");
                     }
                     else
                     {
-
+                        ViewBag.ProductStatus = true;
+                        ViewBag.ProductMessage = "Product Has Been Successfully Added";
+                        ModelState.Clear();
                     }
-
-
                 }
 
                 return View();
@@ -76,6 +89,23 @@ namespace ShoppingCart.Controllers
                 throw new Exception(e.Message);
             }
         }
+
+
+        /// <summary>
+        /// It Show the details of single Product
+        /// </summary>
+        /// <param name="productId">Product Id</param>
+        /// <returns>View</returns>
+        [HttpGet]
+        public ActionResult Details(int productId)
+        {
+            ProductResponseModel product = _productBusiness.Details(productId);
+            return View(product);
+        }
+
+
+
+
 
         /// <summary>
         /// It Upload Product Image to Cloudinary

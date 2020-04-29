@@ -12,5 +12,9 @@ namespace ShoppingCartBusinessLayer.Interface
 
         ProductResponseModel Add(ProductRequestModel productRequest);
 
+        ProductResponseModel Details(int productId);
+
+        List<ProductResponseModel> GetAllProduct();
+
     }
 }

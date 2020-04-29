@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ShoppingCartCommonLayer.Model.ProductResponseModel>
+
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+<script type="text/javascript">
+
+    function productDetails(ProductId) {
+        var url = '@Url.Action("Details", "Product", new { productId = "_productId_"})';
+        location.href = url.replace('_productId_', ProductId);
+    }
+
+    function AddProductToCart(product) {
+
+    }
+
+</script>
+<div class="container">
+    <div class="d-flex flex-wrap">
+        @foreach (ShoppingCartCommonLayer.Model.ProductResponseModel product in Model)
+        {
+
+            <div class="product card mr-2 mt-2" style="width:300px;">
+                <div onclick="productDetails(@product.ProductId)">
+                    <img class="card-img-top" src="@Url.Content(product.Image)" alt="Card image" style="height:225px">
+                    <div class="card-body">
+                        <h4 class="card-title">@product.Name</h4>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-around">
+                    <button type="button" onclick="AddProductToCart(product)" class="btn btn-warning">Add  to Cart</button>
+                    <button type="button" class="btn btn-primary">Buy for Rs.@product.Price</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
