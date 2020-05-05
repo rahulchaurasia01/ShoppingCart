@@ -18,6 +18,8 @@ namespace ShoppingCartRepositoryLayer.ModelContext
 
         public DbSet<Product> Products { set; get; }
 
+        public DbSet<Order> Orders { set; get; }
+
 
     }
 }

@@ -7,13 +7,13 @@ namespace ShoppingCartRepositoryLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class DbAndProductTableCreated : IMigrationMetadata
+    public sealed partial class CreatedProducttable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DbAndProductTableCreated));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreatedProducttable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004191402328_DbAndProductTableCreated"; }
+            get { return "202005051209535_Created Product table."; }
         }
         
         string IMigrationMetadata.Source
