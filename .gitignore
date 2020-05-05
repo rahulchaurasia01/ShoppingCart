@@ -52,6 +52,7 @@ ShoppingCartCommonLayer/bin
 ShoppingCartCommonLayer/obj
 ShoppingCart/bin
 ShoppingCart/obj
+ShoppingCart/SqlServerTypes
 ShoppingCartRepositoryLayer/bin
 ShoppingCartRepositoryLayer/obj
 
