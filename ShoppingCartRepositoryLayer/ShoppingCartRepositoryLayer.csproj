@@ -52,16 +52,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\IProductRepository.cs" />
-    <Compile Include="Migrations\202004191402328_DbAndProductTableCreated.cs" />
-    <Compile Include="Migrations\202004191402328_DbAndProductTableCreated.designer.cs">
-      <DependentUpon>202004191402328_DbAndProductTableCreated.cs</DependentUpon>
+    <Compile Include="Migrations\202005051209535_Created Product table..cs" />
+    <Compile Include="Migrations\202005051209535_Created Product table..designer.cs">
+      <DependentUpon>202005051209535_Created Product table..cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005051253256_Created Order table..cs" />
+    <Compile Include="Migrations\202005051253256_Created Order table..designer.cs">
+      <DependentUpon>202005051253256_Created Order table..cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext\ApplicationContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ProductRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005051209535_Created Product table..resx">
+      <DependentUpon>202005051209535_Created Product table..cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005051253256_Created Order table..resx">
+      <DependentUpon>202005051253256_Created Order table..cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -71,11 +82,6 @@
       <Project>{0d26664e-d2e0-44c1-9e5b-ef1ca71a8487}</Project>
       <Name>ShoppingCartCommonLayer</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004191402328_DbAndProductTableCreated.resx">
-      <DependentUpon>202004191402328_DbAndProductTableCreated.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

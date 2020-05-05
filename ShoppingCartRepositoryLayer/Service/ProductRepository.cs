@@ -44,7 +44,7 @@ namespace ShoppingCartRepositoryLayer.Service
 
                 ProductResponseModel productResponse = new ProductResponseModel
                 {
-                    ProductId = product.ProductId,
+                    ProductId = product.Id,
                     Name = product.Name,
                     Image = product.Image,
                     Quantity = product.Quantity,
@@ -71,13 +71,13 @@ namespace ShoppingCartRepositoryLayer.Service
         {
             try
             {
-                Product product = _applicationContext.Products.Where(pdt => pdt.ProductId == productId).FirstOrDefault();
+                Product product = _applicationContext.Products.Where(pdt => pdt.Id == productId).FirstOrDefault();
 
                 if(product != null)
                 {
                     ProductResponseModel productResponse = new ProductResponseModel
                     {
-                        ProductId = product.ProductId,
+                        ProductId = product.Id,
                         Name = product.Name,
                         Image = product.Image,
                         Quantity = product.Quantity,
@@ -108,7 +108,7 @@ namespace ShoppingCartRepositoryLayer.Service
                 List<ProductResponseModel> products = _applicationContext.Products.
                     Select(product => new ProductResponseModel
                     {
-                        ProductId = product.ProductId,
+                        ProductId = product.Id,
                         Name = product.Name,
                         Image = product.Image,
                         Quantity = product.Quantity,
