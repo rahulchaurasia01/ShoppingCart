@@ -13,7 +13,7 @@ namespace ShoppingCartCommonLayer.ModelDb
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ProductId { set; get; }
+        public int Id { set; get; }
 
         [Required]
         public string Name { set; get; }
